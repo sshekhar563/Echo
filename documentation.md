@@ -54,15 +54,13 @@ getTimestamp() // returns the current timestamp as a string in the format of "02
 - Added navigation logic for cycling through channels and inputs
 - ensured correct alignment of UI elements and clean message formatting
 
+### {Krishna200608} {#104 Eye Spy}
 
-### {sshekhar563} {#103 Acquire Hardware}
-
-- Connected server to MongoDB using mongoose
-- Added User model (server/models/User.js) with fields: username, connectedAt, isOnline
-- Added Message model (server/models/Message.js) with fields: sender, content, timestamp
-- Server logs every user connection to the database
-- Server checks if username is already taken (online), sends error message and disconnects if so
-- Server logs every chat message with sender and timestamp to the database
-- Users are marked offline when they disconnect
-- Added .env.example with MongoDB Atlas connection string template
-- Added dotenv and mongoose dependencies to package.json
+- Updated client/chat.go:
+  - Added getServerAddress() function to capture server URL from user input via stdin.
+  - Implemented default fallback to "localhost:8080" if input is empty.
+  
+- Updated client/main.go:
+  - Removed dependency on command-line flags for server address.
+  - Reordered logic to prompt for Server Address first, then Username.
+- Tested locally: Verified connection sequence with localhost server.
